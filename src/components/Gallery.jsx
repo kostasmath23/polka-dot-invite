@@ -7,7 +7,7 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto">
 
         {/* Τίτλος */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-24" data-aos="fade-up" data-aos-duration="1000">
           <h2 className="text-7xl md:text-8xl font-serif mb-6">Στιγμές μαζί</h2>
           <FaCameraRetro className="text-5xl mx-auto" />
         </div>
@@ -16,7 +16,7 @@ export default function Gallery() {
         <div
           className="flex flex-col md:flex-row items-center justify-between mb-32 gap-12"
           data-aos="fade-left"
-          data-aos-offset="400"
+          data-aos-offset="300"
           data-aos-duration="1200"
           data-aos-easing="ease-out-cubic"
         >
@@ -29,6 +29,9 @@ export default function Gallery() {
               src="/images/gallery1.jpg"
               alt="Η πρώτη μας φωτογραφία"
               className="rounded-lg shadow-lg w-full h-auto object-cover"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+              data-aos-duration="1000"
             />
           </div>
         </div>
@@ -37,7 +40,7 @@ export default function Gallery() {
         <div
           className="flex flex-col md:flex-row items-center justify-between gap-12"
           data-aos="fade-right"
-          data-aos-offset="400"
+          data-aos-offset="300"
           data-aos-duration="1200"
           data-aos-easing="ease-out-cubic"
         >
@@ -47,21 +50,27 @@ export default function Gallery() {
               src="/images/gallery2.jpg"
               alt="Ταξίδι 1"
               className="rounded-lg shadow-md w-full object-cover"
+              data-aos="fade-up"
+              data-aos-delay="100"
             />
             <img
               src="/images/gallery3.jpg"
               alt="Ταξίδι 2"
               className="rounded-lg shadow-md w-full object-cover"
+              data-aos="fade-down"
+              data-aos-delay="200"
             />
             <img
               src="/images/gallery4.jpg"
               alt="Ταξίδι 3"
               className="rounded-lg shadow-md w-full object-cover col-span-2"
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
             />
           </div>
 
           {/* Κείμενο */}
-          <div className="md:w-1/2 text-center md:text-left">
+          <div className="md:w-1/2 text-center md:text-left" data-aos="fade-left" data-aos-delay="400">
             <h3 className="text-5xl md:text-6xl font-serif mb-4">Τα ταξίδια μας</h3>
             <p className="text-2xl md:text-3xl text-gray-600">Γαλλία | Ισπανία | Πολωνία | Γερμανία</p>
           </div>

@@ -27,7 +27,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Φωτογραφίες 1.5x μεγαλύτερες */}
+        {/* Φωτογραφίες με animation */}
         <div className="grid grid-cols-2 gap-4 w-full md:w-[150%]">
           <img
             src="/images/img1.jpg"
