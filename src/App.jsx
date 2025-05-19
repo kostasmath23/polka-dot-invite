@@ -22,7 +22,7 @@ export default function App() {
       {/* ΠΑΓΙΟ RSVP ΚΟΥΜΠΙ */}
       <a
         href="#rsvp"
-        className="fixed top-6 left-4 z-50 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg shadow-lg text-xl font-bold animate-pulse"
+        className="fixed top-6 left-18 z-50 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg shadow-lg text-xl font-bold animate-pulse"
       >
         RSVP
       </a>
