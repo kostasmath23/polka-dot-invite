@@ -4,42 +4,45 @@ import Countdown from './components/Countdown';
 import Timeline from './components/Timeline';
 import SaveTheDate from './components/SaveTheDate';
 import Gallery from './components/Gallery';
-import Cast from './components/Cast';
 import InvitationAndGifts from './components/InvitationAndGifts';
 import WishesAndPoll from './components/WishesAndPoll';
-import RSVPForm from './components/RSVPForm';
+import Cast from './components/Cast';
 import ChurchMap from './components/ChurchMap';
+import RSVPForm from './components/RSVPForm';
 import Footer from './components/Footer';
+import DotNavigation from './components/DotNavigation';
 import BackgroundMusic from './components/BackgroundMusic';
-import SectionWrapper from './components/SectionWrapper';
-import ScrollDots from './components/ScrollDots';
 
 export default function App() {
   return (
-    <div>
-      <BackgroundMusic />
-      <ScrollDots />
+    <div className="relative">
+      {/* Dot navigation δεξιά */}
+      <DotNavigation />
 
-      <SectionWrapper><div id="hero"><Hero /></div></SectionWrapper>
-      <SectionWrapper><div id="countdown"><Countdown /></div></SectionWrapper>
-      <SectionWrapper><div id="timeline"><Timeline /></div></SectionWrapper>
-      <SectionWrapper><div id="savethedate"><SaveTheDate /></div></SectionWrapper>
-      <SectionWrapper><div id="gallery"><Gallery /></div></SectionWrapper>
-      <SectionWrapper><div id="cast"><Cast /></div></SectionWrapper>
-      <SectionWrapper><div id="gifts"><InvitationAndGifts /></div></SectionWrapper>
-      <SectionWrapper><div id="poll"><WishesAndPoll /></div></SectionWrapper>
-      <SectionWrapper><div id="rsvp"><RSVPForm /></div></SectionWrapper>
-      <SectionWrapper><div id="map"><ChurchMap /></div></SectionWrapper>
-
-      <Footer />
-
-      {/* RSVP κουμπί */}
+      {/* ΠΑΓΙΟ RSVP ΚΟΥΜΠΙ */}
       <a
         href="#rsvp"
-        className="fixed top-5 left-5 bg-red-600 text-white font-bold px-6 py-2 rounded shadow-lg text-xl animate-pulse z-50"
+        className="fixed top-6 right-6 z-50 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg shadow-lg text-xl font-bold animate-pulse"
       >
         RSVP
       </a>
+
+      {/* ΠΑΙΚΤΗΣ ΜΟΥΣΙΚΗΣ */}
+      <BackgroundMusic />
+
+      {/* Περιεχόμενο σε sections */}
+      <section id="hero"><Hero /></section>
+      <section id="countdown"><Countdown /></section>
+      <section id="timeline"><Timeline /></section>
+      <section id="savethedate"><SaveTheDate /></section>
+      <section id="gallery"><Gallery /></section>
+      <section id="invitation"><InvitationAndGifts /></section>
+      <section id="wishes"><WishesAndPoll /></section>
+      <section id="cast"><Cast /></section>
+      <section id="church"><ChurchMap /></section>
+      <section id="rsvp"><RSVPForm /></section>
+
+      <Footer />
     </div>
   );
 }
