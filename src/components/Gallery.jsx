@@ -3,28 +3,28 @@ import { FaCameraRetro } from 'react-icons/fa';
 
 export default function Gallery() {
   return (
-    <section className="bg-[#eae6df] text-gray-900 py-32 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#eae6df] text-gray-900 py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
+      <div className="max-w-screen-xl mx-auto">
 
         {/* Τίτλος */}
-        <div className="text-center mb-24" data-aos="fade-up" data-aos-duration="1000">
-          <h2 className="text-7xl md:text-8xl font-serif mb-6">Στιγμές μαζί</h2>
-          <FaCameraRetro className="text-5xl mx-auto" />
+        <div className="text-center mb-20 sm:mb-24" data-aos="fade-up" data-aos-duration="1000">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-serif mb-6">Στιγμές μαζί</h2>
+          <FaCameraRetro className="text-4xl sm:text-5xl mx-auto" />
         </div>
 
-        {/* === Πρώτη Στιγμή === */}
+        {/* Πρώτη φωτογραφία */}
         <div
-          className="flex flex-col md:flex-row items-center justify-between mb-32 gap-12"
+          className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12 mb-24"
           data-aos="fade-left"
           data-aos-offset="300"
           data-aos-duration="1200"
-          data-aos-easing="ease-out-cubic"
         >
-          <div className="md:w-1/2 text-center md:text-left">
-            <h3 className="text-5xl md:text-6xl font-serif mb-4">Η πρώτη μας φωτογραφία</h3>
-            <p className="text-2xl md:text-3xl text-gray-600">20.08.2022</p>
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            <h3 className="text-4xl sm:text-5xl font-serif mb-4">Η πρώτη μας φωτογραφία</h3>
+            <p className="text-xl sm:text-2xl text-gray-600">20.08.2022</p>
           </div>
-          <div className="md:w-1/2">
+
+          <div className="w-full md:w-1/2">
             <img
               src="/images/gallery1.jpg"
               alt="Η πρώτη μας φωτογραφία"
@@ -36,16 +36,23 @@ export default function Gallery() {
           </div>
         </div>
 
-        {/* === Ταξίδια === */}
+        {/* Ταξίδια */}
+        {/* Mobile: Κείμενο πάνω από τις εικόνες */}
+        <div className="text-center mb-10 md:hidden" data-aos="fade-up" data-aos-delay="100">
+          <h3 className="text-4xl sm:text-5xl font-serif mb-4">Τα ταξίδια μας</h3>
+          <p className="text-xl sm:text-2xl text-gray-600">
+            Γαλλία | Ισπανία | Πολωνία | Γερμανία
+          </p>
+        </div>
+
         <div
-          className="flex flex-col md:flex-row items-center justify-between gap-12"
+          className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12"
           data-aos="fade-right"
           data-aos-offset="300"
           data-aos-duration="1200"
-          data-aos-easing="ease-out-cubic"
         >
           {/* Εικόνες */}
-          <div className="md:w-1/2 grid grid-cols-2 gap-6">
+          <div className="w-full md:w-1/2 grid grid-cols-2 gap-4 sm:gap-6">
             <img
               src="/images/gallery2.jpg"
               alt="Ταξίδι 1"
@@ -69,10 +76,16 @@ export default function Gallery() {
             />
           </div>
 
-          {/* Κείμενο */}
-          <div className="md:w-1/2 text-center md:text-left" data-aos="fade-left" data-aos-delay="400">
-            <h3 className="text-5xl md:text-6xl font-serif mb-4">Τα ταξίδια μας</h3>
-            <p className="text-2xl md:text-3xl text-gray-600">Γαλλία | Ισπανία | Πολωνία | Γερμανία</p>
+          {/* Κείμενο (desktop) */}
+          <div
+            className="w-full md:w-1/2 text-center md:text-left hidden md:block"
+            data-aos="fade-left"
+            data-aos-delay="400"
+          >
+            <h3 className="text-4xl sm:text-5xl font-serif mb-4">Τα ταξίδια μας</h3>
+            <p className="text-xl sm:text-2xl text-gray-600">
+              Γαλλία | Ισπανία | Πολωνία | Γερμανία
+            </p>
           </div>
         </div>
 

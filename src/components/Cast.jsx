@@ -11,34 +11,34 @@ const members = [
 
 export default function Cast() {
   return (
-    <section className="bg-[#f9f6f2] text-gray-900 py-32 px-6 md:px-12 text-center text-[1.25rem] md:text-[1.5rem]">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-[#f9f6f2] text-gray-900 py-24 sm:py-32 px-4 sm:px-6 text-center text-base sm:text-lg">
+      <div className="max-w-screen-xl mx-auto">
 
         {/* Τίτλος */}
-        <h2 className="text-6xl md:text-7xl font-serif mb-4">Οι Πρωταγωνιστές</h2>
-        <FaUsers className="text-5xl text-gray-700 mx-auto mb-20" />
+        <h2 className="text-5xl sm:text-6xl font-serif mb-4">Οι Πρωταγωνιστές</h2>
+        <FaUsers className="text-4xl sm:text-5xl text-gray-700 mx-auto mb-16" />
 
         {/* Κάρτες */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-32 gap-y-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-20">
           {members.map((member, index) => (
             <div key={index}>
-              <div className="relative group rounded-lg overflow-hidden shadow-lg">
+              <div className="relative group rounded-xl overflow-hidden shadow-lg">
                 <img
                   src={member.image}
                   alt={member.role}
-                  className="w-full h-[28rem] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <p className="text-white text-2xl font-semibold">{member.role}</p>
+                  <p className="text-white text-xl sm:text-2xl font-semibold">{member.role}</p>
                 </div>
               </div>
 
               {/* Social Icons */}
-              <div className="flex justify-center mt-6 gap-6 text-4xl text-gray-700">
-                <a href="#"><FaFacebookF /></a>
-                <a href="#"><FaInstagram /></a>
-                <a href="#"><FaXTwitter /></a>
-                <a href="#"><SiTiktok /></a>
+              <div className="flex justify-center mt-5 gap-4 text-2xl sm:text-3xl text-gray-700">
+                <a href="#" className="hover:scale-110 transition"><FaFacebookF /></a>
+                <a href="#" className="hover:scale-110 transition"><FaInstagram /></a>
+                <a href="#" className="hover:scale-110 transition"><FaXTwitter /></a>
+                <a href="#" className="hover:scale-110 transition"><SiTiktok /></a>
               </div>
             </div>
           ))}

@@ -10,27 +10,23 @@ export default function RSVPForm() {
 
     emailjs
       .sendForm(
-        'service_gq3nglo',         // <-- βάλε το δικό σου Service ID
-        'template_lscg14m',          // <-- βάλε το δικό σου Template ID
+        'service_gq3nglo',
+        'template_lscg14m',
         form.current,
-        'PhphUrmOyFt_PdVls'      // <-- βάλε το Public API Key σου
+        'PhphUrmOyFt_PdVls'
       )
-      .then(() => {
-        setSubmitted(true);
-      })
-      .catch((error) => {
-        alert("⚠️ Σφάλμα αποστολής: " + error.text);
-      });
+      .then(() => setSubmitted(true))
+      .catch((error) => alert("⚠️ Σφάλμα αποστολής: " + error.text));
   };
 
   return (
-    <section id="rsvp" className="bg-[#f5f1eb] py-32 px-6 md:px-12 text-gray-900 text-[1.5rem] md:text-[1.75rem]">
-      <div className="max-w-[96rem] mx-auto bg-white p-10 md:p-16 rounded-xl shadow-xl">
-        <h2 className="text-center text-5xl md:text-6xl font-serif mb-6">RSVP</h2>
-        <p className="text-center mb-10 text-xl md:text-2xl">Παρακαλούμε να μας απαντήσετε έως 30 Αυγούστου</p>
+    <section id="rsvp" className="bg-[#f5f1eb] py-24 sm:py-32 px-4 sm:px-6 text-gray-900 text-base sm:text-lg">
+      <div className="max-w-screen-lg mx-auto bg-white p-6 sm:p-10 md:p-14 rounded-xl shadow-xl">
+        <h2 className="text-center text-4xl sm:text-5xl font-serif mb-6">RSVP</h2>
+        <p className="text-center mb-10 text-base sm:text-xl">Παρακαλούμε να μας απαντήσετε έως 30 Αυγούστου</p>
 
         {submitted ? (
-          <p className="text-green-700 text-2xl text-center">Η απάντησή σας καταχωρήθηκε και εστάλη με επιτυχία! 💌</p>
+          <p className="text-green-700 text-xl text-center">Η απάντησή σας καταχωρήθηκε! 💌</p>
         ) : (
           <form ref={form} onSubmit={handleSubmit} className="space-y-8">
 
@@ -44,17 +40,16 @@ export default function RSVPForm() {
                   'Θέλω να γράψω προσωπική απάντηση στο ζευγάρι'
                 ].map((text, i) => (
                   <label key={i} className="flex items-center gap-3">
-                    <input type="radio" name="attendance" required value={text} className="w-5 h-5" />
-                    {text}
+                    <input type="radio" name="attendance" required value={text} className="w-5 h-5" /> {text}
                   </label>
                 ))}
               </div>
             </div>
 
-            {/* Πλήθος ατόμων */}
+            {/* Αριθμός ενηλίκων */}
             <div>
               <label className="font-semibold block mb-2">Αριθμός ατόμων - Ενήλικες *</label>
-              <select name="adults" required className="w-full border rounded px-6 py-4">
+              <select name="adults" required className="w-full border rounded px-4 py-3">
                 <option value="">Επιλέξτε αριθμό ενηλίκων</option>
                 <option>1</option>
                 <option>2</option>
@@ -65,26 +60,26 @@ export default function RSVPForm() {
             {/* Ονοματεπώνυμο */}
             <div>
               <label className="font-semibold block mb-2">Ονοματεπώνυμο *</label>
-              <input name="name" type="text" required className="w-full border rounded px-6 py-4" />
+              <input name="name" type="text" required className="w-full border rounded px-4 py-3" />
             </div>
 
-            {/* Κινητό */}
+            {/* Τηλέφωνο */}
             <div>
               <label className="font-semibold block mb-2">Κινητό</label>
-              <input name="phone" type="tel" className="w-full border rounded px-6 py-4" placeholder="π.χ. 691 234 5678" />
+              <input name="phone" type="tel" className="w-full border rounded px-4 py-3" placeholder="π.χ. 6912345678" />
             </div>
 
             {/* Παιδιά */}
             <div>
               <label className="font-semibold block mb-2">Θα συνοδευτείτε από παιδιά;</label>
-              <div className="flex gap-10 mt-2 pl-2">
+              <div className="flex flex-wrap gap-6 pl-2 mt-1">
                 {['Ναι', 'Όχι'].map((val, i) => (
                   <label key={i} className="flex items-center gap-3">
                     <input type="radio" name="kids" value={val} className="w-5 h-5" /> {val}
                   </label>
                 ))}
               </div>
-              <p className="text-base text-gray-600 mt-2">*Παρακαλούμε ενημερώστε μας για παιδικό μενού, animator κ.ά.</p>
+              <p className="text-sm text-gray-600 mt-2">*Παρακαλούμε ενημερώστε μας για παιδικό μενού, animator κ.ά.</p>
             </div>
 
             {/* Διατροφή */}
@@ -99,33 +94,12 @@ export default function RSVPForm() {
               </div>
             </div>
 
-            {/* Αλλεργίες */}
-            <div>
-              <label className="font-semibold block mb-2">Υπάρχει κάποια αλλεργία σε κάποιο τρόφιμο; *</label>
-              <div className="flex gap-10 mt-2 pl-2">
-                {['Ναι', 'Όχι'].map((val, i) => (
-                  <label key={i} className="flex items-center gap-3">
-                    <input type="radio" name="allergy" value={val} required className="w-5 h-5" /> {val}
-                  </label>
-                ))}
-              </div>
-              <p className="text-base text-gray-600 mt-2">*Ενημερώστε μας προληπτικά για την ασφάλειά σας</p>
-            </div>
-
-            {/* Υπόμνηση */}
-            <input
-              type="text"
-              disabled
-              value="Όταν είστε έτοιμοι, πατήστε Αποστολή"
-              className="w-full border rounded px-6 py-4 bg-gray-100 text-base italic"
-            />
-
-            {/* Submit */}
-            <div className="text-center">
-              <button type="submit" className="bg-blue-700 text-white font-bold text-xl px-10 py-4 rounded hover:bg-blue-800 transition">
-                Αποστολή
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="bg-[#6c4c1c] hover:bg-[#5a3e19] text-white px-6 py-3 rounded-md w-full transition text-center"
+            >
+              Υποβολή RSVP
+            </button>
           </form>
         )}
       </div>

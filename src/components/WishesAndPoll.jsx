@@ -31,8 +31,8 @@ export default function WishesAndPoll() {
 
     emailjs
       .sendForm(
-        'service_gq3nglo',      // <-- αντικατάστησε με το δικό σου
-        'template_wo2cepc',    // <-- αντικατάστησε με το δικό σου
+        'service_gq3nglo',         // <-- Βάλε τα δικά σου
+        'template_wo2cepc',
         wishForm.current,
         'PhphUrmOyFt_PdVls'
       )
@@ -66,7 +66,7 @@ export default function WishesAndPoll() {
       const percent = Math.round((count / total) * 100);
       return (
         <div key={i} className="mb-3">
-          <div className="font-semibold text-lg mb-1">{option}</div>
+          <div className="font-semibold text-base sm:text-lg mb-1">{option}</div>
           <div className="w-full bg-gray-300 rounded-full h-6 overflow-hidden">
             <div
               className="bg-blue-600 text-white h-full text-right pr-3 font-bold text-sm"
@@ -89,166 +89,146 @@ export default function WishesAndPoll() {
   ];
 
   return (
-    <section className="bg-[#f5f1eb] py-32 px-6 md:px-12 text-gray-900 text-[1.25rem] md:text-[1.5rem]">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-
+    <section className="bg-[#f5f1eb] py-24 sm:py-32 px-4 sm:px-6 text-gray-900 text-base sm:text-lg">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         {/* Ευχολόγιο */}
-        <div className="bg-[#d8c9b8] rounded-lg shadow-lg p-10 md:p-14">
-          <h2 className="text-5xl md:text-6xl font-serif text-center mb-4">Ευχολόγιο</h2>
-          <FaBookOpen className="text-5xl text-center mx-auto mb-10 text-[#6c4c1c]" />
+        <div className="bg-[#d8c9b8] rounded-xl shadow-lg p-6 sm:p-10 md:p-14 w-full">
+          <h2 className="text-4xl sm:text-5xl font-serif text-center mb-4">Ευχολόγιο</h2>
+          <FaBookOpen className="text-4xl sm:text-5xl text-center mx-auto mb-6 sm:mb-10 text-[#6c4c1c]" />
 
           {wishSubmitted ? (
-            <p className="text-green-700 text-center text-2xl mt-10">Η ευχή σας υποβλήθηκε με επιτυχία! 💌</p>
+            <p className="text-center text-green-700 font-semibold text-lg">Η ευχή σας στάλθηκε! Ευχαριστούμε! 💌</p>
           ) : (
-            <form ref={wishForm} onSubmit={handleWishSubmit} className="space-y-8">
+            <form ref={wishForm} onSubmit={handleWishSubmit} className="space-y-6">
+              <input
+                type="text"
+                name="from"
+                placeholder="Το όνομά σας"
+                required
+                className="w-full p-3 rounded-md border border-gray-300"
+              />
 
-              <div>
-                <label className="block font-semibold mb-2">Ονοματεπώνυμο *</label>
-                <input name="name" type="text" required className="w-full border rounded px-6 py-4 text-xl" />
-              </div>
-
-              <div>
-                <label className="block font-semibold mb-2">Επιλέξτε μορφή ευχής *</label>
-                <div className="space-y-3 mt-2 pl-1">
-                  <label className="flex items-center gap-3">
-                    <input
-                      type="radio"
-                      name="mode"
-                      value="words"
-                      required
-                      onChange={() => setMode('words')}
-                      className="w-5 h-5"
-                    />
-                    Είμαι καλός/ή με τα λόγια
-                  </label>
-                  <label className="flex items-center gap-3">
-                    <input
-                      type="radio"
-                      name="mode"
-                      value="support"
-                      onChange={() => setMode('support')}
-                      className="w-5 h-5"
-                    />
-                    Δεν το έχω με τις ευχές… λίγη βοήθεια;
-                  </label>
+              <div className="flex flex-col gap-2">
+                <label className="font-semibold text-sm">Θέλετε να γράψετε ή να επιλέξετε ευχή;</label>
+                <div className="flex gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setMode('write')}
+                    className={`px-4 py-2 rounded-md border ${mode === 'write' ? 'bg-white border-black' : 'border-gray-400'}`}
+                  >
+                    Γράφω εγώ
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setMode('support')}
+                    className={`px-4 py-2 rounded-md border ${mode === 'support' ? 'bg-white border-black' : 'border-gray-400'}`}
+                  >
+                    Επιλέγω από λίστα
+                  </button>
                 </div>
               </div>
 
-              {mode === 'words' && (
-                <div>
-                  <label className="block font-semibold mb-2">Γράψτε παρακάτω την ευχή σας</label>
-                  <textarea name="message" rows="5" className="w-full border rounded px-6 py-4 text-xl" />
-                </div>
+              {mode === 'write' && (
+                <textarea
+                  name="message"
+                  placeholder="Γράψτε την ευχή σας εδώ..."
+                  required
+                  className="w-full p-3 rounded-md border border-gray-300 min-h-[100px]"
+                />
               )}
 
               {mode === 'support' && (
-                <div>
-                  <label className="block font-semibold mb-2">Επιλέξτε μια ευχή</label>
+                <>
                   <select
-                    required
-                    value={selectedMessage}
                     onChange={(e) => setSelectedMessage(e.target.value)}
-                    className="w-full border rounded px-6 py-4 text-xl"
+                    className="w-full p-3 rounded-md border border-gray-300"
+                    required
                   >
-                    <option value="">-- Επιλέξτε ευχή --</option>
-                    {presetWishes.map((wish, i) => (
-                      <option key={i} value={wish}>{wish}</option>
+                    <option value="">Επιλέξτε ευχή...</option>
+                    {presetWishes.map((msg, i) => (
+                      <option key={i} value={msg}>
+                        {msg}
+                      </option>
                     ))}
                   </select>
                   <input type="hidden" name="message" id="generatedWish" value={selectedMessage} />
-                </div>
+                </>
               )}
 
-              <input
-                type="text"
-                disabled
-                value="Όταν είστε έτοιμοι, πατήστε Αποστολή"
-                className="w-full border rounded px-6 py-4 bg-gray-100 text-base italic"
-              />
-
-              <button type="submit" className="bg-blue-700 text-white font-bold text-xl px-8 py-4 rounded hover:bg-blue-800 transition">
-                Αποστολή
+              <button
+                type="submit"
+                className="bg-[#6c4c1c] hover:bg-[#5a3e19] text-white px-6 py-3 rounded-md w-full transition"
+              >
+                Αποστολή ευχής
               </button>
             </form>
           )}
         </div>
 
-        {/* Δημοσκόπηση */}
-        <div className="bg-[#f5f1eb] rounded-lg shadow-lg p-10 md:p-14">
-          <h2 className="text-5xl md:text-6xl font-serif text-center mb-4">Δημοσκόπηση</h2>
-          <FaChartBar className="text-5xl text-center mx-auto mb-10 text-[#6c4c1c]" />
+        {/* Poll */}
+        <div className="bg-[#d8c9b8] rounded-xl shadow-lg p-6 sm:p-10 md:p-14 w-full">
+          <h2 className="text-4xl sm:text-5xl font-serif text-center mb-4">Ψηφοφορία</h2>
+          <FaChartBar className="text-4xl sm:text-5xl text-center mx-auto mb-6 sm:mb-10 text-[#6c4c1c]" />
 
           {showResults ? (
             <div className="space-y-10">
               <div>
-                <h3 className="text-3xl font-bold mb-4">Να πατήσει η νύφη το πόδι του γαμπρού;</h3>
+                <h4 className="font-semibold text-lg mb-4">Τι περιμένετε περισσότερο από το γάμο;</h4>
                 {renderResults('q1')}
               </div>
               <div>
-                <h3 className="text-3xl font-bold mb-4">Πού να πάμε ταξίδι του μέλιτος;</h3>
+                <h4 className="font-semibold text-lg mb-4">Τι σας αρέσει περισσότερο στους γάμους;</h4>
                 {renderResults('q2')}
               </div>
-              <button className="mt-8 text-blue-700 underline text-lg" onClick={() => setShowResults(false)}>
-                Επιστροφή στη δημοσκόπηση
-              </button>
             </div>
           ) : (
             <form onSubmit={handlePollSubmit} className="space-y-10">
               <div>
-                <label className="block font-semibold mb-3">Να πατήσει η νύφη το πόδι του γαμπρού *</label>
-                <div className="space-y-3 mt-2 pl-1">
-                  {['Φυσικά!', 'Ναι αν το θέλει και η ίδια…', 'Κρίμα δεν είναι το παπουτσάκι του γαμπρού;', 'Όχι… αυτά είναι ξεπερασμένα!'].map((text, i) => (
-                    <label key={i} className="flex items-center gap-3">
-                      <input
-                        type="radio"
-                        name="q1"
-                        value={text}
-                        required
-                        checked={selected.q1 === text}
-                        onChange={() => handleSelect('q1', text)}
-                        className="w-5 h-5"
-                      />
-                      {text}
-                    </label>
-                  ))}
-                </div>
+                <h4 className="font-semibold text-lg mb-4">Τι περιμένετε περισσότερο από το γάμο;</h4>
+                {['Φαγητό', 'Χορός', 'Συγκίνηση', 'Παρέα'].map((opt) => (
+                  <label key={opt} className="block mb-2">
+                    <input
+                      type="radio"
+                      name="q1"
+                      value={opt}
+                      checked={selected.q1 === opt}
+                      onChange={() => handleSelect('q1', opt)}
+                      className="mr-2"
+                      required
+                    />
+                    {opt}
+                  </label>
+                ))}
               </div>
 
               <div>
-                <label className="block font-semibold mb-3">Πού να πάμε ταξίδι του μέλιτος; *</label>
-                <div className="space-y-3 mt-2 pl-1">
-                  {['Μπουτάν', 'Καππαδοκία', 'Ντουμπάι', 'Σεϋχέλλες', 'Σημασία έχει ότι θα είστε οι δυο σας!'].map((text, i) => (
-                    <label key={i} className="flex items-center gap-3">
-                      <input
-                        type="radio"
-                        name="q2"
-                        value={text}
-                        required
-                        checked={selected.q2 === text}
-                        onChange={() => handleSelect('q2', text)}
-                        className="w-5 h-5"
-                      />
-                      {text}
-                    </label>
-                  ))}
-                </div>
+                <h4 className="font-semibold text-lg mb-4">Τι σας αρέσει περισσότερο στους γάμους;</h4>
+                {['Ρούχα', 'Νυφικό', 'Τούρτα', 'Φωτογραφίες'].map((opt) => (
+                  <label key={opt} className="block mb-2">
+                    <input
+                      type="radio"
+                      name="q2"
+                      value={opt}
+                      checked={selected.q2 === opt}
+                      onChange={() => handleSelect('q2', opt)}
+                      className="mr-2"
+                      required
+                    />
+                    {opt}
+                  </label>
+                ))}
               </div>
 
-              <div className="flex flex-col gap-4 items-center justify-center">
-                <button type="submit" className="bg-blue-700 text-white font-bold text-xl px-8 py-4 rounded hover:bg-blue-800 transition">
-                  Υποβολή
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setShowResults(true)}
-                  className="text-blue-700 underline text-lg"
-                >
-                  Δείτε αποτελέσματα χωρίς να ψηφίσετε
-                </button>
-              </div>
+              <button
+                type="submit"
+                className="bg-[#6c4c1c] hover:bg-[#5a3e19] text-white px-6 py-3 rounded-md w-full transition"
+              >
+                Υποβολή απαντήσεων
+              </button>
             </form>
           )}
         </div>
+
       </div>
     </section>
   );
