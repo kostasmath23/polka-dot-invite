@@ -37,7 +37,7 @@ export default function ScrollDots() {
           key={section.id}
           href={`#${section.id}`}
           className={`w-4 h-4 rounded-full ${
-            activeId === section.id ? 'bg-red-600 scale-125' : 'bg-gray-400'
+            activeId === section.id ? 'bg-[#87A96B] scale-125' : 'bg-gray-400'
           } transition-all duration-300`}
           title={section.label}
         />

@@ -3,7 +3,7 @@ import { FaCameraRetro } from 'react-icons/fa';
 
 export default function Gallery() {
   return (
-    <section className="bg-[#eae6df] text-gray-900 py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
+    <section className="bg-[#d8c9b8] text-gray-900 py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-screen-xl mx-auto">
 
         {/* Τίτλος */}
@@ -19,12 +19,12 @@ export default function Gallery() {
           data-aos-offset="300"
           data-aos-duration="1200"
         >
-          <div className="w-full md:w-1/2 text-center md:text-left">
+          <div className="w-full md:w-1/2 text-center md:text-left text-[#306844]">
             <h3 className="text-4xl sm:text-5xl font-serif mb-4">Η πρώτη μας φωτογραφία</h3>
-            <p className="text-xl sm:text-2xl text-gray-600">20.08.2022</p>
+            <p className="text-xl sm:text-2xl text-gray-600">08.05.2018</p>
           </div>
 
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 ">
             <img
               src="/images/gallery1.jpg"
               alt="Η πρώτη μας φωτογραφία"
@@ -37,9 +37,10 @@ export default function Gallery() {
         </div>
 
         {/* Ταξίδια */}
+
         {/* Mobile: Κείμενο πάνω από τις εικόνες */}
-        <div className="text-center mb-10 md:hidden" data-aos="fade-up" data-aos-delay="100">
-          <h3 className="text-4xl sm:text-5xl font-serif mb-4">Τα ταξίδια μας</h3>
+        <div className="text-center mb-10 md:hidden " data-aos="fade-up" data-aos-delay="100">
+          <h3 className="text-4xl sm:text-5xl font-serif mb-4 text-[#306844]">Τα ταξίδια μας</h3>
           <p className="text-xl sm:text-2xl text-gray-600">
             Γαλλία | Ισπανία | Πολωνία | Γερμανία
           </p>
@@ -70,7 +71,7 @@ export default function Gallery() {
             <img
               src="/images/gallery4.jpg"
               alt="Ταξίδι 3"
-              className="rounded-lg shadow-md w-full object-cover col-span-2"
+              className="rounded-lg shadow-md w-4/5 object-cover col-span-2 mx-auto"
               data-aos="zoom-in-up"
               data-aos-delay="300"
             />
@@ -82,9 +83,9 @@ export default function Gallery() {
             data-aos="fade-left"
             data-aos-delay="400"
           >
-            <h3 className="text-4xl sm:text-5xl font-serif mb-4">Τα ταξίδια μας</h3>
+            <h3 className="text-4xl sm:text-5xl font-serif mb-4 text-[#306844]">Τα ταξίδια μας</h3>
             <p className="text-xl sm:text-2xl text-gray-600">
-              Γαλλία | Ισπανία | Πολωνία | Γερμανία
+              Γαλλία | Αγγλία | Γερμανία
             </p>
           </div>
         </div>

@@ -8,7 +8,7 @@ export default function InvitationAndGifts() {
   };
 
   return (
-    <section className="bg-white py-24 sm:py-32 px-4 sm:px-6 text-gray-900 text-lg sm:text-xl">
+    <section className="bg-[#eae6df] py-24 sm:py-32 px-4 sm:px-6 text-gray-900 text-lg sm:text-xl">
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-24 items-start">
 
         {/* Προσκλητήριο */}

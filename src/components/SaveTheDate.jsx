@@ -4,12 +4,12 @@ import { Parallax } from 'react-scroll-parallax';
 
 export default function SaveTheDate() {
   return (
-    <section className="bg-white py-24 sm:py-32 px-4 sm:px-6 text-gray-800 overflow-hidden">
+    <section className="bg-[white] py-24 sm:py-32 px-4 sm:px-6 text-[gray-800] overflow-hidden">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
 
         {/* Εικόνες με parallax */}
         <div className="flex flex-row md:flex-col items-center justify-center gap-8 w-full md:w-1/2">
-          <Parallax translateY={[30, -30]} className="w-[90px] sm:w-[120px] md:w-[160px]">
+          <Parallax translateY={[30, -30]} className="w-[90px] sm:w-[160px] md:w-[200px]">
             <img
               src="/images/flower.png"
               alt="flower"
@@ -29,8 +29,8 @@ export default function SaveTheDate() {
         {/* Κείμενο */}
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left gap-6">
           <h2 className="text-5xl sm:text-6xl font-serif">Save The Date</h2>
-          <p className="text-6xl sm:text-7xl font-extrabold tracking-wide">27.09.2025</p>
-          <FaCalendarCheck className="text-4xl sm:text-5xl text-gray-700" />
+          <p className="text-6xl sm:text-7xl font-extrabold tracking-wide text-[#306844]">27.09.2025</p>
+          <FaCalendarCheck className="text-4xl sm:text-5xl text-[#306844]" />
         </div>
 
       </div>

@@ -10,8 +10,8 @@ export default function Hero() {
           className="bg-white px-6 sm:px-10 md:px-16 lg:px-20 py-16 sm:py-20 rounded-2xl shadow-2xl w-full lg:w-1/2"
           data-aos="fade-up"
         >
-          <h1 className="text-5xl sm:text-6xl font-serif text-gray-800 mb-10 text-center">
-            Θοδωρής & Έννη
+          <h1 className="text-5xl sm:text-6xl font-serif text-[#306844] mb-10 text-center">
+            Θοδωρής <p></p>& Έννη
           </h1>
           <hr className="my-8 border-gray-300" />
           <p className="text-xl sm:text-2xl text-gray-700 mb-10 text-center">
@@ -20,7 +20,7 @@ export default function Hero() {
           <div className="flex justify-center">
             <a
               href="#rsvp"
-              className="bg-rose-400 hover:bg-rose-500 text-white px-8 py-4 text-lg rounded-lg transition"
+              className="bg-[#87A96B] hover:bg-rose-500 text-white px-8 py-4 text-lg rounded-lg transition"
             >
               RSVP
             </a>

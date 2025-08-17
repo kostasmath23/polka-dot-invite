@@ -1,17 +1,16 @@
 import React from 'react';
-import { FaUsers, FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6';
-import { SiTiktok } from 'react-icons/si';
+import { FaUsers } from 'react-icons/fa6';
 
 const members = [
-  { role: 'Η Νύφη', image: '/images/bride.jpg' },
-  { role: 'Ο Γαμπρός', image: '/images/groom.jpg' },
-  { role: 'Κουμπάρα', image: '/images/maid.jpg' },
+  { role: 'Νύφη', image: '/images/bride.jpg' },
+  { role: 'Γαμπρός', image: '/images/groom.jpg' },
+  { role: 'Πρωτοκουμπάρα', image: '/images/maid.jpg' },
   { role: 'Κουμπάρος', image: '/images/bestman.jpg' }
 ];
 
 export default function Cast() {
   return (
-    <section className="bg-[#f9f6f2] text-gray-900 py-24 sm:py-32 px-4 sm:px-6 text-center text-base sm:text-lg">
+    <section className="bg-[#eae6df] text-gray-900 py-24 sm:py-32 px-4 sm:px-6 text-center text-base sm:text-lg">
       <div className="max-w-screen-xl mx-auto">
 
         {/* Τίτλος */}
@@ -33,13 +32,8 @@ export default function Cast() {
                 </div>
               </div>
 
-              {/* Social Icons */}
-              <div className="flex justify-center mt-5 gap-4 text-2xl sm:text-3xl text-gray-700">
-                <a href="#" className="hover:scale-110 transition"><FaFacebookF /></a>
-                <a href="#" className="hover:scale-110 transition"><FaInstagram /></a>
-                <a href="#" className="hover:scale-110 transition"><FaXTwitter /></a>
-                <a href="#" className="hover:scale-110 transition"><SiTiktok /></a>
-              </div>
+              {/* Τίτλος κάτω από την εικόνα */}
+              <p className="mt-4 text-lg sm:text-xl font-semibold text-gray-800">{member.role}</p>
             </div>
           ))}
         </div>

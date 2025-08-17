@@ -24,7 +24,7 @@ export default function DotNavigation() {
           key={s.id}
           href={`#${s.id}`}
           className={`w-4 h-4 rounded-full transition-all duration-300 ${
-            currentSection === s.id ? 'bg-red-600 scale-125' : 'bg-gray-400'
+            currentSection === s.id ? 'bg-[#87A96B] scale-125' : 'bg-gray-400'
           }`}
           title={s.label}
         />
