@@ -32,7 +32,7 @@ export default function RSVPForm() {
 
             {/* Παρουσία */}
             <div>
-              <label className="font-semibold block mb-2">Θα παρευρεθείτε στη δεξίωση; *</label>
+              <label className="font-semibold block mb-2 text-[#306844]">Θα παρευρεθείτε στη δεξίωση; *</label>
               <div className="space-y-2 pl-2">
                 {[
                   'Ναι θα είμαι εκεί αυτή την τόσο σημαντική στιγμή σας!',
@@ -73,7 +73,7 @@ export default function RSVPForm() {
 
                         {/* Διατροφή */}
             <div>
-              <label className="font-semibold block mb-2">Έχετε κάποια διατροφική συνήθεια; *</label>
+              <label className="font-semibold block mb-2 text-[#306844]">Έχετε κάποια διατροφική συνήθεια; *</label>
               <div className="space-y-2 pl-2">
                 {['Όχι', 'Vegan', 'Vegetarian'].map((text, i) => (
                   <label key={i} className="flex items-center gap-3">
