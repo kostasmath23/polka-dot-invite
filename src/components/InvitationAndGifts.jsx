@@ -30,8 +30,8 @@ export default function InvitationAndGifts() {
 
           <div className="text-left space-y-6 w-full max-w-xl">
             {[
-              { bank: 'Τράπεζα Πειραιώς', iban: 'GR12 3456 7890 1234 5678 9012 345' },
-              { bank: 'Eurobank', iban: 'GR98 7654 3210 9876 5432 1098 765' },
+              { bank: 'Εθνική Τράπεζα', iban: 'GR14 0110 3060 0000 3060 0182 791' },
+              { bank: 'Τράπεζα Πειραιώς', iban: 'GR75 0171 9130 0069 1313 2734 884' },
             ].map((item, i) => (
               <div key={i} className="bg-gray-100 rounded-xl p-6 shadow-md">
                 <p className="font-semibold text-xl sm:text-2xl mb-2">{item.bank}</p>

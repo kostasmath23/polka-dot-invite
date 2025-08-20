@@ -42,7 +42,7 @@ export default function Gallery() {
         <div className="text-center mb-10 md:hidden " data-aos="fade-up" data-aos-delay="100">
           <h3 className="text-4xl sm:text-5xl font-serif mb-4 text-[#306844]">Τα ταξίδια μας</h3>
           <p className="text-xl sm:text-2xl text-gray-600">
-            Γαλλία | Ισπανία | Πολωνία | Γερμανία
+            Γαλλία | Ισπανία | Γερμανία
           </p>
         </div>
 
