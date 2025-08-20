@@ -39,7 +39,7 @@ export default function ChurchMap() {
         <div data-aos="fade-right" data-aos-offset="400" data-aos-duration="1200">
           <h2 className="text-5xl sm:text-6xl font-serif mb-6 text-black">Η δεξίωση</h2>
           <hr className="border-t border-gray-400 w-1/2 mx-auto mb-6" />
-          <p className="text-2xl sm:text-3xl font-semibold mb-2" style={{ color: '#306844' }}>Κέντρο Δεξιώσεων "Αστερίας"</p>
+          <p className="text-2xl sm:text-3xl font-semibold mb-2" style={{ color: '#306844' }}>Κτήμα Ateria</p>
           <p className="text-xl sm:text-2xl mb-10" style={{ color: '#306844' }}>Μετά την τελετή</p>
 
           <div className="w-full aspect-video mb-10 rounded-lg overflow-hidden shadow-lg">
