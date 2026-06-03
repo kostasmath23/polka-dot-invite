@@ -4,8 +4,9 @@ import { FaUsers } from 'react-icons/fa6';
 const members = [
   { role: 'Νύφη', image: '/images/bride.jpg' },
   { role: 'Γαμπρός', image: '/images/groom.jpg' },
-  { role: 'Πρωτοκουμπάρα', image: '/images/maid.jpg' },
-  { role: 'Κουμπάρος', image: '/images/bestman.jpg' }
+  { role: 'Κουμπάρος', image: '/images/maid.jpg' },
+  { role: 'Κουμπάρα', image: '/images/bestman.jpg' },
+  { role: 'Κουμπάρα', image: '/images/bestman2.jpg' },
 ];
 
 export default function Cast() {
@@ -62,10 +63,10 @@ export default function Cast() {
         </div>
 
         {/* Κάρτες */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 sm:gap-x-6 gap-y-12 sm:gap-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-6 gap-y-12 sm:gap-y-16">
           {members.map((member, index) => (
             <div key={index} className="flex flex-col items-center">
-              <div className="relative group w-full rounded-xl overflow-hidden shadow-lg h-[300px] sm:h-[350px] md:h-[400px]">
+              <div className="relative group w-full rounded-xl overflow-hidden shadow-lg h-[300px] sm:h-[350px] lg:h-[360px]">
                 <img
                   src={member.image}
                   alt={member.role}

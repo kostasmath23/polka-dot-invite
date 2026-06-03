@@ -65,7 +65,7 @@ export default function Gallery() {
           <img
             src="/images/gallery2.jpg"
             alt="Στιγμή μαζί 1"
-            className="rounded-lg shadow-md w-full h-[260px] sm:h-[300px] object-cover"
+            className="rounded-lg shadow-md w-full h-[260px] sm:h-[400px] object-cover"
             data-aos="fade-up"
             data-aos-delay="100"
           />
@@ -73,7 +73,7 @@ export default function Gallery() {
           <img
             src="/images/gallery3.jpg"
             alt="Στιγμή μαζί 2"
-            className="rounded-lg shadow-md w-full h-[260px] sm:h-[300px] object-cover"
+            className="rounded-lg shadow-md w-full h-[260px] sm:h-[400px] object-cover"
             data-aos="fade-down"
             data-aos-delay="200"
           />
@@ -81,7 +81,7 @@ export default function Gallery() {
           <img
             src="/images/gallery4.jpg"
             alt="Στιγμή μαζί 3"
-            className="rounded-lg shadow-md w-full sm:w-3/4 h-[230px] sm:h-[280px] object-cover sm:col-span-2 mx-auto"
+            className="rounded-lg shadow-md w-full sm:w-3/4 h-[230px] sm:h-[380px] object-cover sm:col-span-2 mx-auto"
             data-aos="zoom-in-up"
             data-aos-delay="300"
           />

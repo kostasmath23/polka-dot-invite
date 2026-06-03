@@ -75,7 +75,7 @@ export default function RSVPForm() {
                 className="font-semibold block mb-2"
                 style={goldText}
               >
-                Θα παρευρεθείτε στη δεξίωση; *
+                Θα παρευρεθείτε στη δεξίωση; 
               </label>
 
               <div className="space-y-2 pl-2">
@@ -101,7 +101,7 @@ export default function RSVPForm() {
             {/* Αριθμός ενηλίκων */}
             <div>
               <label className="font-semibold block mb-2">
-                Αριθμός ατόμων *
+                Αριθμός ενηλίκων 
               </label>
 
               <select
@@ -109,19 +109,39 @@ export default function RSVPForm() {
                 required
                 className="w-full border rounded px-4 py-3"
               >
-                <option value="">Επιλέξτε αριθμό ατόμων</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option value="">Επιλέξτε αριθμό ενηλίκων</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+
+            {/* Αριθμός παιδιών */}
+            <div>
+              <label className="font-semibold block mb-2">
+                Αριθμός παιδιών 
+              </label>
+
+              <select
+                name="children"
+                required
+                className="w-full border rounded px-4 py-3"
+              >
+                <option value="">Επιλέξτε αριθμό παιδιών</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
               </select>
             </div>
 
             {/* Ονοματεπώνυμο */}
             <div>
               <label className="font-semibold block mb-2">
-                Ονοματεπώνυμο *
+                Ονοματεπώνυμο 
               </label>
 
               <input
@@ -144,31 +164,6 @@ export default function RSVPForm() {
                 className="w-full border rounded px-4 py-3"
                 placeholder="π.χ. 6912345678"
               />
-            </div>
-
-            {/* Διατροφή */}
-            <div>
-              <label
-                className="font-semibold block mb-2"
-                style={goldText}
-              >
-                Έχετε κάποια διατροφική συνήθεια; *
-              </label>
-
-              <div className="space-y-2 pl-2">
-                {['Όχι', 'Vegan', 'Vegetarian'].map((text, i) => (
-                  <label key={i} className="flex items-center gap-3">
-                    <input
-                      type="radio"
-                      name="diet"
-                      value={text}
-                      required
-                      className="w-5 h-5"
-                    />
-                    {text}
-                  </label>
-                ))}
-              </div>
             </div>
 
             <button
