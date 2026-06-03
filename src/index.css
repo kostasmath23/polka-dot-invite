@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Miama";
+  src: url("/fonts/Miama.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== Οριζόντια Ασφάλεια ========== */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Optional: smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========== Floating Animation ========== */
+@layer utilities {
+  .float {
+    @apply animate-float;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+/* ========== Invitation Glow ========== */
+.invitation-glow::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(0deg);
+  transition: transform 1.5s ease;
+  pointer-events: none;
+}
+
+.invitation-glow:hover::before {
+  transform: translateX(100%) translateY(100%);
+}
