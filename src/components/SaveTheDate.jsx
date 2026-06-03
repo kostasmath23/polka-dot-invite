@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaCalendarCheck } from 'react-icons/fa';
-import { Parallax } from 'react-scroll-parallax';
 
 export default function SaveTheDate() {
   const goldText = {
@@ -8,54 +7,6 @@ export default function SaveTheDate() {
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     textShadow: '0 3px 10px rgba(120, 90, 25, 0.18)',
-  };
-
-  const addToCalendar = () => {
-    const eventTitle = 'Γάμος Κωνσταντίνου & Παναγιώτας';
-    const eventLocation = 'Ιερός Ναός Αγίας Κυριακής';
-    const eventDescription = 'Σας περιμένουμε με χαρά στον γάμο μας!';
-
-    /*
-      Η ώρα είναι Ελλάδα:
-      31/10/2026 16:30
-      Σε μορφή UTC για σωστή αναγνώριση από iPhone / Android.
-      Ελλάδα τότε: UTC+2, άρα 16:30 Ελλάδας = 14:30 UTC.
-    */
-    const startDate = '20261031T143000Z';
-    const endDate = '20261031T153000Z';
-
-    const icsContent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Wedding Invitation//GR
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-BEGIN:VEVENT
-UID:wedding-konstantinos-panagiota-20261031
-DTSTAMP:20261031T120000Z
-DTSTART:${startDate}
-DTEND:${endDate}
-SUMMARY:${eventTitle}
-LOCATION:${eventLocation}
-DESCRIPTION:${eventDescription}
-END:VEVENT
-END:VCALENDAR
-`.trim();
-
-    const blob = new Blob([icsContent], {
-      type: 'text/calendar;charset=utf-8',
-    });
-
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-
-    link.href = url;
-    link.download = 'gamos-konstantinos-panagiota.ics';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -93,9 +44,8 @@ END:VCALENDAR
           31.10.2026
         </p>
 
-        <button
-          type="button"
-          onClick={addToCalendar}
+        <a
+          href="/calendar/gamos-konstantinos-panagiota.ics"
           className="group flex flex-col items-center gap-2 cursor-pointer active:scale-95 transition"
           title="Προσθήκη στο ημερολόγιο"
           aria-label="Προσθήκη του γάμου στο ημερολόγιο"
@@ -108,10 +58,10 @@ END:VCALENDAR
             }}
           />
 
-          <span className="text-sm sm:text-base text-gray-600 underline underline-offset-4">
-            Προσθήκη στο ημερολόγιο
+          <span className="text-xs sm:text-sm text-gray-600 italic">
+            (Προσθήκη στο ημερολόγιο)
           </span>
-        </button>
+        </a>
       </div>
     </section>
   );
