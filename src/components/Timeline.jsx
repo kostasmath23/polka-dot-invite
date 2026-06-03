@@ -37,19 +37,19 @@ export default function Timeline() {
   };
 
   return (
-    <section className="py-24 px-4 sm:px-6 text-white bg-[#F8F0EB] overflow-hidden">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 text-white bg-[#F8F0EB] overflow-hidden">
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row gap-16 md:gap-10 items-stretch justify-between relative">
 
         {/* Timeline */}
         <div className="relative w-full md:w-2/3">
           <div
-            className="absolute left-6 top-0 bottom-0 w-1"
+            className="absolute left-6 top-4 bottom-20 w-1 rounded-full"
             style={goldGradient}
           ></div>
 
           <div className="pl-12">
             {events.map((event, i) => (
-              <div key={i} className="relative mb-16 md:mb-20">
+              <div key={i} className="relative mb-12 md:mb-14">
                 <div
                   className="absolute left-0 top-0 transform -translate-x-1/2 border-4 border-white rounded-full w-14 h-14 flex items-center justify-center text-2xl text-white z-10 shadow-lg"
                   style={goldGradient}
@@ -61,6 +61,7 @@ export default function Timeline() {
                   <p className="text-base sm:text-lg text-gray-600 mb-2">
                     {event.date}
                   </p>
+
                   <p
                     className="text-xl sm:text-2xl font-semibold"
                     style={goldText}
