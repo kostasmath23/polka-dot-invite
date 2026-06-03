@@ -44,21 +44,21 @@ export default function ChurchMap() {
               className="text-2xl sm:text-3xl font-semibold mb-2"
               style={goldText}
             >
-              Ιερός Ναός Αγίας Κυριακής
+              Ιερός Ναός Κοιμήσεως Θεοτόκου
             </p>
 
             <p
               className="text-xl sm:text-2xl"
               style={goldText}
             >
-              5:30 μ.μ.
+              4:30 μ.μ.
             </p>
           </div>
 
           <div className="w-full aspect-video mb-10 rounded-lg overflow-hidden shadow-lg">
             <iframe
               title="Church Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.1723394055043!2d25.860126953879984!3d40.84613989778861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b21cba8eca554d%3A0x24a65119ac829844!2zzpHOvc64zq_OvM61zrnOvyDOlc66zrrOu863z4POuc6xz4PPhM65zrrPjCDOoM6_zrvOuc-EzrnPg8-EzrnOus-MIM6azq3Ovc-Ez4HOvw!5e0!3m2!1sel!2sgr!4v1755429223420!5m2!1sel!2sgr"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3069.4029323388!2d20.78828627597606!3d39.70812657156224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMznCsDQyJzI5LjMiTiAyMMKwNDcnMjcuMSJF!5e0!3m2!1sel!2sgr!4v1780503330059!5m2!1sel!2sgr"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -69,7 +69,7 @@ export default function ChurchMap() {
           </div>
 
           <a
-            href="https://maps.app.goo.gl/mYxEhxHLvZMRgMqHA"
+            href="https://maps.app.goo.gl/bV6b1LbATCF2RWNr9"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-white text-base sm:text-xl font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded shadow transition-all duration-300 hover:scale-105 hover:shadow-xl"
@@ -100,7 +100,7 @@ export default function ChurchMap() {
               className="text-2xl sm:text-3xl font-semibold mb-2"
               style={goldText}
             >
-              Κτήμα Ateria
+              Χήτος Luxury Hall
             </p>
 
             <p
@@ -114,7 +114,7 @@ export default function ChurchMap() {
           <div className="w-full aspect-video mb-10 rounded-lg overflow-hidden shadow-lg">
             <iframe
               title="Reception Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.246552020174!2d25.89964331210062!3d40.88840627124818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b21be8942bde19%3A0x4c518f82b085b5bb!2sKtima%20Ateria!5e0!3m2!1sel!2sgr!4v1755429051488!5m2!1sel!2sgr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.7571336843134!2d20.7335101!3d39.7900054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135bc7499b55c385%3A0x3bddb8fbc5e0922b!2zzqfOrs-Ezr_PgiBMdXh1cnkgSGFsbA!5e0!3m2!1sel!2sgr!4v1780503467071!5m2!1sel!2sgr"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -125,7 +125,7 @@ export default function ChurchMap() {
           </div>
 
           <a
-            href="https://maps.app.goo.gl/9U5JntKCeBxxdiv78"
+            href="https://maps.app.goo.gl/JsSQKM8wFhhAcYu56"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block text-white text-base sm:text-xl font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded shadow transition-all duration-300 hover:scale-105 hover:shadow-xl"

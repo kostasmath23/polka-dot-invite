@@ -30,22 +30,23 @@ export default function Hero() {
             className="
               mb-8 sm:mb-10
               text-center
-              leading-[0.72] sm:leading-[0.75] md:leading-[0.78]
-              text-[4.4rem] min-[390px]:text-[5rem] sm:text-8xl md:text-8xl lg:text-8xl
+              leading-[0.84] sm:leading-[0.78] md:leading-[0.78]
+              text-[4.2rem] min-[390px]:text-[4.8rem] sm:text-8xl md:text-8xl lg:text-8xl
               max-w-full
               mx-auto
+              pb-4 sm:pb-2
             "
             style={goldText}
           >
-            <span className="block whitespace-nowrap">
+            <span className="block whitespace-nowrap pb-1">
               Κωνσταντίνος
             </span>
 
-            <span className="block text-5xl sm:text-6xl md:text-7xl leading-[0.8]">
+            <span className="block text-5xl sm:text-6xl md:text-7xl leading-[0.9] py-1">
               &
             </span>
 
-            <span className="block whitespace-nowrap">
+            <span className="block whitespace-nowrap pb-4 sm:pb-3">
               Παναγιώτα
             </span>
           </h1>
