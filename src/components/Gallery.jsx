@@ -62,29 +62,37 @@ export default function Gallery() {
           data-aos-offset="250"
           data-aos-duration="1200"
         >
-          <img
-            src="/images/gallery2.jpg"
-            alt="Στιγμή μαζί 1"
-            className="rounded-lg shadow-md w-full h-[260px] sm:h-[400px] object-cover"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          />
+          <div className="rounded-lg shadow-md w-full h-[260px] sm:h-[400px] bg-white overflow-hidden flex items-center justify-center">
+            <img
+              src="/images/gallery2.jpg"
+              alt="Στιγμή μαζί 1"
+              className="w-full h-full object-contain sm:object-cover"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            />
+          </div>
 
-          <img
-            src="/images/gallery3.jpg"
-            alt="Στιγμή μαζί 2"
-            className="rounded-lg shadow-md w-full h-[260px] sm:h-[400px] object-cover"
-            data-aos="fade-down"
-            data-aos-delay="200"
-          />
+          <div className="rounded-lg shadow-md w-full h-[260px] sm:h-[400px] bg-white overflow-hidden flex items-center justify-center">
+            <img
+              src="/images/gallery3.jpg"
+              alt="Στιγμή μαζί 2"
+              className="w-full h-full object-contain sm:object-cover"
+              data-aos="fade-down"
+              data-aos-delay="200"
+            />
+          </div>
 
-          <img
-            src="/images/gallery4.jpg"
-            alt="Στιγμή μαζί 3"
-            className="rounded-lg shadow-md w-full sm:w-3/4 h-[230px] sm:h-[380px] object-cover sm:col-span-2 mx-auto"
+          <div
+            className="rounded-lg shadow-md w-full sm:w-3/4 h-[230px] sm:h-[380px] bg-white overflow-hidden flex items-center justify-center sm:col-span-2 mx-auto"
             data-aos="zoom-in-up"
             data-aos-delay="300"
-          />
+          >
+            <img
+              src="/images/gallery4.jpg"
+              alt="Στιγμή μαζί 3"
+              className="w-full h-full object-contain sm:object-cover"
+            />
+          </div>
         </div>
 
       </div>
