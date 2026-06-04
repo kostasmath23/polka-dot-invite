@@ -3,7 +3,7 @@ export const translations = {
     hero: {
       groom: 'Κωνσταντίνος',
       bride: 'Παναγιώτα',
-      subtitle: 'Παντρευόμαστε και σας προσκαλούμε στον γάμο μας!',
+      subtitle: 'Με πολλή αγάπη και χαρά, σας προσκαλούμε να μοιραστείτε μαζί μας την πιο όμορφη στιγμή της ζωής μας!',
       rsvp: 'RSVP',
     },
     countdown: {
@@ -137,7 +137,7 @@ export const translations = {
     hero: {
       groom: 'Konstantinos',
       bride: 'Panagiota',
-      subtitle: 'We are getting married and we would love to celebrate with you!',
+      subtitle: 'With much love and joy, we invite you to share with us the most beautiful moment of our lives!',
       rsvp: 'RSVP',
     },
     countdown: {
