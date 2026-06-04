@@ -32,26 +32,45 @@ export default function Cast() {
       <div className="max-w-screen-xl mx-auto">
         <div className="mb-12 sm:mb-16">
           <div className={titleBox}>
-            <h2 className="text-6xl sm:text-7xl md:text-8xl leading-[0.9]" style={{ fontFamily: "'Miama', cursive", ...goldText }}>
+            <h2
+              className="text-6xl sm:text-7xl md:text-8xl leading-[0.9]"
+              style={{ fontFamily: "'Miama', cursive", ...goldText }}
+            >
               {t.cast.title}
             </h2>
 
-            <FaUsers className="text-3xl sm:text-4xl md:text-5xl mx-auto mt-5" style={{ fill: 'url(#goldCastIconGradient)', filter: 'drop-shadow(0 3px 6px rgba(120, 90, 25, 0.22))' }} />
+            <FaUsers
+              className="text-3xl sm:text-4xl md:text-5xl mx-auto mt-5"
+              style={{
+                fill: 'url(#goldCastIconGradient)',
+                filter: 'drop-shadow(0 3px 6px rgba(120, 90, 25, 0.22))',
+              }}
+            />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-6 gap-y-12 sm:gap-y-16">
           {t.cast.members.map((member, index) => (
             <div key={index} className="flex flex-col items-center">
-              <div className="relative group w-full rounded-xl overflow-hidden shadow-lg h-[300px] sm:h-[350px] lg:h-[360px]">
-                <img src={member.image} alt={member.role} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="relative group w-full rounded-xl overflow-hidden shadow-lg h-[360px] sm:h-[350px] lg:h-[360px] bg-white flex items-center justify-center">
+                <img
+                  src={member.image}
+                  alt={member.role}
+                  className="w-full h-full object-contain sm:object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
                 <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <p className="text-white text-lg sm:text-xl font-semibold break-words px-2 text-center">{member.role}</p>
+                  <p className="text-white text-lg sm:text-xl font-semibold break-words px-2 text-center">
+                    {member.role}
+                  </p>
                 </div>
               </div>
 
               <div className="mt-3 sm:mt-4 bg-white rounded-xl shadow-md px-5 py-2 inline-block">
-                <p className="text-3xl sm:text-4xl font-semibold break-words text-center" style={{ fontFamily: "'Miama', cursive", ...goldText }}>
+                <p
+                  className="text-3xl sm:text-4xl font-semibold break-words text-center"
+                  style={{ fontFamily: "'Miama', cursive", ...goldText }}
+                >
                   {member.role}
                 </p>
               </div>
