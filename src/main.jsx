@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import { ScrollProvider } from './context/ScrollContext';
+import { LanguageProvider } from './context/LanguageContext';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -19,7 +20,9 @@ function Root() {
   return (
     <ParallaxProvider>
       <ScrollProvider>
-        <App />
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
       </ScrollProvider>
     </ParallaxProvider>
   );

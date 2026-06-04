@@ -12,18 +12,15 @@ import RSVPForm from './components/RSVPForm';
 import Footer from './components/Footer';
 import DotNavigation from './components/DotNavigation';
 import BackgroundMusic from './components/BackgroundMusic';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 export default function App() {
   return (
     <div className="relative">
-      {/* Dot navigation δεξιά */}
+      <LanguageSwitcher />
       <DotNavigation />
-
-     
-      {/* ΠΑΙΚΤΗΣ ΜΟΥΣΙΚΗΣ */}
       <BackgroundMusic />
 
-      {/* Περιεχόμενο σε sections */}
       <section id="hero"><Hero /></section>
       <section id="countdown"><Countdown /></section>
       <section id="timeline"><Timeline /></section>
