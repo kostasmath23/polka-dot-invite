@@ -1,8 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ChurchMap() {
-  const goldGradient =
-    'linear-gradient(135deg, #B8860B, #F5D76E, #C9A24A, #8B6B1F)';
+  const { t } = useLanguage();
+
+  const goldGradient = 'linear-gradient(135deg, #B8860B, #F5D76E, #C9A24A, #8B6B1F)';
 
   const goldText = {
     background: goldGradient,
@@ -11,8 +13,7 @@ export default function ChurchMap() {
     textShadow: '0 3px 10px rgba(120, 90, 25, 0.18)',
   };
 
-  const titleBox =
-    'bg-white rounded-2xl shadow-xl px-8 py-5 inline-block';
+  const titleBox = 'bg-white rounded-2xl shadow-xl px-8 py-5 inline-block';
 
   const goldButton = {
     background: goldGradient,
@@ -22,37 +23,18 @@ export default function ChurchMap() {
   return (
     <section className="text-white py-24 sm:py-32 px-4 sm:px-6 text-center bg-[#F8F0EB]">
       <div className="max-w-screen-xl mx-auto space-y-24">
-
-        {/* Μυστήριο */}
         <div data-aos="fade-left" data-aos-offset="400" data-aos-duration="1200">
           <div className={titleBox}>
-            <h2
-              className="text-6xl sm:text-7xl md:text-8xl leading-[0.9]"
-              style={{
-                fontFamily: "'Miama', cursive",
-                ...goldText,
-              }}
-            >
-              Το μυστήριο
+            <h2 className="text-6xl sm:text-7xl md:text-8xl leading-[0.9]" style={{ fontFamily: "'Miama', cursive", ...goldText }}>
+              {t.church.ceremonyTitle}
             </h2>
           </div>
 
           <hr className="border-t border-gray-400 w-1/2 mx-auto my-6" />
 
           <div className="bg-white rounded-2xl shadow-xl px-8 py-5 inline-block mb-10">
-            <p
-              className="text-2xl sm:text-3xl font-semibold mb-2"
-              style={goldText}
-            >
-              Ιερός Ναός Κοιμήσεως Θεοτόκου
-            </p>
-
-            <p
-              className="text-xl sm:text-2xl"
-              style={goldText}
-            >
-              4:30 μ.μ.
-            </p>
+            <p className="text-2xl sm:text-3xl font-semibold mb-2" style={goldText}>{t.church.ceremonyPlace}</p>
+            <p className="text-xl sm:text-2xl" style={goldText}>{t.church.ceremonyTime}</p>
           </div>
 
           <div className="w-full aspect-video mb-10 rounded-lg overflow-hidden shadow-lg">
@@ -68,47 +50,23 @@ export default function ChurchMap() {
             ></iframe>
           </div>
 
-          <a
-            href="https://maps.app.goo.gl/bV6b1LbATCF2RWNr9"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-white text-base sm:text-xl font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded shadow transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            style={goldButton}
-          >
-            Πλοήγηση | Google Maps 🚗
+          <a href="https://maps.app.goo.gl/bV6b1LbATCF2RWNr9" target="_blank" rel="noopener noreferrer" className="inline-block text-white text-base sm:text-xl font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded shadow transition-all duration-300 hover:scale-105 hover:shadow-xl" style={goldButton}>
+            {t.church.ceremonyButton}
           </a>
         </div>
 
-        {/* Δεξίωση */}
         <div data-aos="fade-right" data-aos-offset="400" data-aos-duration="1200">
           <div className={titleBox}>
-            <h2
-              className="text-6xl sm:text-7xl md:text-8xl leading-[0.9]"
-              style={{
-                fontFamily: "'Miama', cursive",
-                ...goldText,
-              }}
-            >
-              Η δεξίωση
+            <h2 className="text-6xl sm:text-7xl md:text-8xl leading-[0.9]" style={{ fontFamily: "'Miama', cursive", ...goldText }}>
+              {t.church.receptionTitle}
             </h2>
           </div>
 
           <hr className="border-t border-gray-400 w-1/2 mx-auto my-6" />
 
           <div className="bg-white rounded-2xl shadow-xl px-8 py-5 inline-block mb-10">
-            <p
-              className="text-2xl sm:text-3xl font-semibold mb-2"
-              style={goldText}
-            >
-              Χήτος Luxury Hall
-            </p>
-
-            <p
-              className="text-xl sm:text-2xl"
-              style={goldText}
-            >
-              Μετά την τελετή
-            </p>
+            <p className="text-2xl sm:text-3xl font-semibold mb-2" style={goldText}>{t.church.receptionPlace}</p>
+            <p className="text-xl sm:text-2xl" style={goldText}>{t.church.receptionTime}</p>
           </div>
 
           <div className="w-full aspect-video mb-10 rounded-lg overflow-hidden shadow-lg">
@@ -124,17 +82,10 @@ export default function ChurchMap() {
             ></iframe>
           </div>
 
-          <a
-            href="https://maps.app.goo.gl/JsSQKM8wFhhAcYu56"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-white text-base sm:text-xl font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded shadow transition-all duration-300 hover:scale-105 hover:shadow-xl"
-            style={goldButton}
-          >
-            Πλοήγηση | Google Maps 🎉
+          <a href="https://maps.app.goo.gl/JsSQKM8wFhhAcYu56" target="_blank" rel="noopener noreferrer" className="inline-block text-white text-base sm:text-xl font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded shadow transition-all duration-300 hover:scale-105 hover:shadow-xl" style={goldButton}>
+            {t.church.receptionButton}
           </a>
         </div>
-
       </div>
     </section>
   );
