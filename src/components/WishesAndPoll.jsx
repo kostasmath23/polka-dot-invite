@@ -19,6 +19,14 @@ const firebaseConfig = {
 const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
+/*
+  ΝΕΟ ΚΑΘΑΡΟ POLL
+  Οι παλιές ψήφοι μένουν στο παλιό path, αλλά πλέον το site μετράει από εδώ.
+  Αν θέλεις ξανά reset στο μέλλον, άλλαξε αυτά τα δύο ονόματα σε κάτι νέο.
+*/
+const VOTES_PATH = 'votes_reset_2026_06_04';
+const POLL_STORAGE_KEY = 'pollSelected_reset_2026_06_04';
+
 const OPTIONS = {
   q1: ['definitely', 'maybe', 'impossible'],
   q2: ['bride', 'groom', 'koumparoi'],
@@ -52,7 +60,7 @@ export default function WishesAndPoll() {
   };
 
   useEffect(() => {
-    const savedSelected = localStorage.getItem('pollSelected');
+    const savedSelected = localStorage.getItem(POLL_STORAGE_KEY);
     if (savedSelected) {
       try {
         const parsed = JSON.parse(savedSelected);
@@ -76,10 +84,14 @@ export default function WishesAndPoll() {
   };
 
   useEffect(() => {
-    const votesRef = ref(db, 'votes');
+    const votesRef = ref(db, VOTES_PATH);
+
     const unsub = onValue(votesRef, (snap) => {
       const data = snap.val() || {};
-      setVotes({ q1: data.q1 || {}, q2: data.q2 || {} });
+      setVotes({
+        q1: data.q1 || {},
+        q2: data.q2 || {},
+      });
     });
 
     return () => unsub();
@@ -88,7 +100,7 @@ export default function WishesAndPoll() {
   const handleSelect = (q, value) => {
     setSelected((prev) => {
       const next = { ...prev, [q]: value };
-      localStorage.setItem('pollSelected', JSON.stringify(next));
+      localStorage.setItem(POLL_STORAGE_KEY, JSON.stringify(next));
       return next;
     });
   };
@@ -96,7 +108,7 @@ export default function WishesAndPoll() {
   const handlePollSubmit = async (e) => {
     e.preventDefault();
 
-    const prevSelectedRaw = localStorage.getItem('pollSelected');
+    const prevSelectedRaw = localStorage.getItem(POLL_STORAGE_KEY);
     let prevSelected = null;
 
     try {
@@ -110,18 +122,18 @@ export default function WishesAndPoll() {
       const oldChoice = prevSelected?.[q] || null;
 
       if (oldChoice && oldChoice !== newChoice) {
-        const decRef = ref(db, `votes/${q}/${oldChoice}`);
+        const decRef = ref(db, `${VOTES_PATH}/${q}/${oldChoice}`);
         await runTransaction(decRef, (current) => {
           const val = Number(current) || 0;
           return Math.max(0, val - 1);
         });
       }
 
-      const incRef = ref(db, `votes/${q}/${newChoice}`);
+      const incRef = ref(db, `${VOTES_PATH}/${q}/${newChoice}`);
       await runTransaction(incRef, (current) => (Number(current) || 0) + 1);
     }
 
-    localStorage.setItem('pollSelected', JSON.stringify(selected));
+    localStorage.setItem(POLL_STORAGE_KEY, JSON.stringify(selected));
     setShowResults(true);
   };
 
@@ -155,7 +167,10 @@ export default function WishesAndPoll() {
         <div key={`${question}-${option}-${i}`} className="mb-3">
           <div className="font-semibold text-base sm:text-lg mb-1">{getOptionLabel(option)}</div>
           <div className="w-full bg-gray-300 rounded-full h-6 overflow-hidden">
-            <div className="text-white h-full text-right pr-3 font-bold text-sm" style={{ width: `${percent}%`, background: goldGradient }}>
+            <div
+              className="text-white h-full text-right pr-3 font-bold text-sm"
+              style={{ width: `${percent}%`, background: goldGradient }}
+            >
               {percent}%
             </div>
           </div>
@@ -181,41 +196,77 @@ export default function WishesAndPoll() {
         <div className="bg-[#d8c9b8] rounded-xl shadow-lg p-6 sm:p-10 md:p-14 w-full pb-8">
           <div className="text-center mb-6 sm:mb-10">
             <div className={titleBox}>
-              <h2 className="text-6xl sm:text-7xl md:text-7xl leading-[0.9]" style={{ fontFamily: "'Miama', cursive", ...goldText }}>
+              <h2
+                className="text-6xl sm:text-7xl md:text-7xl leading-[0.9]"
+                style={{ fontFamily: "'Miama', cursive", ...goldText }}
+              >
                 {t.wishes.title}
               </h2>
             </div>
 
-            <FaBookOpen className="text-4xl sm:text-5xl text-center mx-auto mt-6" style={{ fill: 'url(#goldWishIconGradient)', filter: 'drop-shadow(0 3px 6px rgba(120, 90, 25, 0.22))' }} />
+            <FaBookOpen
+              className="text-4xl sm:text-5xl text-center mx-auto mt-6"
+              style={{
+                fill: 'url(#goldWishIconGradient)',
+                filter: 'drop-shadow(0 3px 6px rgba(120, 90, 25, 0.22))',
+              }}
+            />
           </div>
 
           {wishSubmitted ? (
             <p className="text-center text-green-700 font-semibold text-lg">{t.wishes.sent}</p>
           ) : (
             <form ref={wishForm} onSubmit={handleWishSubmit} className="space-y-6">
-              <input type="text" name="from" placeholder={t.wishes.namePlaceholder} required className="w-full p-3 rounded-md border border-gray-300" />
+              <input
+                type="text"
+                name="from"
+                placeholder={t.wishes.namePlaceholder}
+                required
+                className="w-full p-3 rounded-md border border-gray-300"
+              />
 
               <div className="flex flex-col gap-2">
                 <label className="font-semibold text-sm">{t.wishes.chooseMode}</label>
 
                 <div className="flex gap-4">
-                  <button type="button" onClick={() => setMode('write')} className={`px-4 py-2 rounded-md border transition ${mode === 'write' ? 'bg-white border-black' : 'border-gray-400'}`}>
+                  <button
+                    type="button"
+                    onClick={() => setMode('write')}
+                    className={`px-4 py-2 rounded-md border transition ${
+                      mode === 'write' ? 'bg-white border-black' : 'border-gray-400'
+                    }`}
+                  >
                     {t.wishes.writeOwn}
                   </button>
 
-                  <button type="button" onClick={() => setMode('support')} className={`px-4 py-2 rounded-md border transition ${mode === 'support' ? 'bg-white border-black' : 'border-gray-400'}`}>
+                  <button
+                    type="button"
+                    onClick={() => setMode('support')}
+                    className={`px-4 py-2 rounded-md border transition ${
+                      mode === 'support' ? 'bg-white border-black' : 'border-gray-400'
+                    }`}
+                  >
                     {t.wishes.chooseFromList}
                   </button>
                 </div>
               </div>
 
               {mode === 'write' && (
-                <textarea name="message" placeholder={t.wishes.messagePlaceholder} required className="w-full p-3 rounded-md border border-gray-300 min-h-[100px]" />
+                <textarea
+                  name="message"
+                  placeholder={t.wishes.messagePlaceholder}
+                  required
+                  className="w-full p-3 rounded-md border border-gray-300 min-h-[100px]"
+                />
               )}
 
               {mode === 'support' && (
                 <>
-                  <select onChange={(e) => setSelectedMessage(e.target.value)} className="w-full p-3 rounded-md border border-gray-300" required>
+                  <select
+                    onChange={(e) => setSelectedMessage(e.target.value)}
+                    className="w-full p-3 rounded-md border border-gray-300"
+                    required
+                  >
                     <option value="">{t.wishes.selectWish}</option>
                     {t.wishes.presetWishes.map((msg, i) => (
                       <option key={i} value={msg}>{msg}</option>
@@ -226,7 +277,11 @@ export default function WishesAndPoll() {
                 </>
               )}
 
-              <button type="submit" className="text-white px-6 py-3 rounded-md w-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl" style={goldButton}>
+              <button
+                type="submit"
+                className="text-white px-6 py-3 rounded-md w-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                style={goldButton}
+              >
                 {t.wishes.submit}
               </button>
 
@@ -240,12 +295,21 @@ export default function WishesAndPoll() {
         <div className="bg-[#d8c9b8] rounded-xl shadow-lg p-6 sm:p-10 md:p-14 w-full">
           <div className="text-center mb-6 sm:mb-10">
             <div className={titleBox}>
-              <h2 className="text-6xl sm:text-7xl md:text-7xl leading-[0.9]" style={{ fontFamily: "'Miama', cursive", ...goldText }}>
+              <h2
+                className="text-6xl sm:text-7xl md:text-7xl leading-[0.9]"
+                style={{ fontFamily: "'Miama', cursive", ...goldText }}
+              >
                 {t.poll.title}
               </h2>
             </div>
 
-            <FaChartBar className="text-4xl sm:text-5xl text-center mx-auto mt-6" style={{ fill: 'url(#goldWishIconGradient)', filter: 'drop-shadow(0 3px 6px rgba(120, 90, 25, 0.22))' }} />
+            <FaChartBar
+              className="text-4xl sm:text-5xl text-center mx-auto mt-6"
+              style={{
+                fill: 'url(#goldWishIconGradient)',
+                filter: 'drop-shadow(0 3px 6px rgba(120, 90, 25, 0.22))',
+              }}
+            />
           </div>
 
           {showResults ? (
@@ -264,9 +328,18 @@ export default function WishesAndPoll() {
             <form onSubmit={handlePollSubmit} className="space-y-10">
               <div>
                 <h4 className="font-semibold text-lg mb-4">{t.poll.q1}</h4>
+
                 {OPTIONS.q1.map((opt) => (
                   <label key={opt} className="block mb-2">
-                    <input type="radio" name="q1" value={opt} checked={selected.q1 === opt} onChange={() => handleSelect('q1', opt)} className="mr-2" required />
+                    <input
+                      type="radio"
+                      name="q1"
+                      value={opt}
+                      checked={selected.q1 === opt}
+                      onChange={() => handleSelect('q1', opt)}
+                      className="mr-2"
+                      required
+                    />
                     {t.poll.options[opt]}
                   </label>
                 ))}
@@ -274,20 +347,37 @@ export default function WishesAndPoll() {
 
               <div>
                 <h4 className="font-semibold text-lg mb-4">{t.poll.q2}</h4>
+
                 {OPTIONS.q2.map((opt) => (
                   <label key={opt} className="block mb-2">
-                    <input type="radio" name="q2" value={opt} checked={selected.q2 === opt} onChange={() => handleSelect('q2', opt)} className="mr-2" required />
+                    <input
+                      type="radio"
+                      name="q2"
+                      value={opt}
+                      checked={selected.q2 === opt}
+                      onChange={() => handleSelect('q2', opt)}
+                      className="mr-2"
+                      required
+                    />
                     {t.poll.options[opt]}
                   </label>
                 ))}
               </div>
 
-              <button type="submit" className="text-white px-6 py-3 rounded-md w-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl" style={goldButton}>
+              <button
+                type="submit"
+                className="text-white px-6 py-3 rounded-md w-full transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                style={goldButton}
+              >
                 {t.poll.submit}
               </button>
 
               <div className="flex justify-center">
-                <button type="button" onClick={() => setShowResults(true)} className="mt-2 text-sm text-gray-700 underline hover:text-gray-900 transition">
+                <button
+                  type="button"
+                  onClick={() => setShowResults(true)}
+                  className="mt-2 text-sm text-gray-700 underline hover:text-gray-900 transition"
+                >
                   {t.poll.seeResults}
                 </button>
               </div>
