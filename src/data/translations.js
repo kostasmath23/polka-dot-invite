@@ -101,7 +101,7 @@ export const translations = {
       attendanceOptions: [
         'Ναι θα είμαι εκεί αυτή την τόσο σημαντική στιγμή σας!',
         'Δυστυχώς δε θα μπορέσω να παρευρεθώ',
-        'Θέλω να γράψω προσωπική απάντηση στο ζευγάρι',
+        'Θα επικοινωνήσω τηλεφωνικά με το ζευγάρι',
       ],
       adults: 'Αριθμός ενηλίκων',
       adultsPlaceholder: 'Επιλέξτε αριθμό ενηλίκων',
@@ -235,7 +235,7 @@ export const translations = {
       attendanceOptions: [
         'Yes, I will be there for this very special moment!',
         'Unfortunately, I will not be able to attend',
-        'I would like to write a personal message to the couple',
+        'I will call the couple directly',
       ],
       adults: 'Number of adults',
       adultsPlaceholder: 'Select number of adults',
