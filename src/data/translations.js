@@ -32,10 +32,7 @@ export const translations = {
     },
     invitation: {
       title: 'Το προσκλητήριο',
-      giftTitle: 'Λίστα γάμου',
       invitationAlt: 'Προσκλητήριο',
-      copy: 'Αντιγραφή',
-      copiedIban: 'Το IBAN αντιγράφηκε!',
     },
     wishes: {
       title: 'Ευχολόγιο',
@@ -119,7 +116,7 @@ export const translations = {
       timeline: 'Ιστορία',
       savethedate: 'Ημερομηνία',
       gallery: 'Gallery',
-      invitation: 'Δώρα',
+      invitation: 'Προσκλητήριο',
       wishes: 'Ευχές',
       cast: 'Πρωταγωνιστές',
       church: 'Εκκλησία',
@@ -166,10 +163,7 @@ export const translations = {
     },
     invitation: {
       title: 'The Invitation',
-      giftTitle: 'Wedding Gift List',
       invitationAlt: 'Invitation',
-      copy: 'Copy',
-      copiedIban: 'The IBAN has been copied!',
     },
     wishes: {
       title: 'Guest Book',
@@ -253,7 +247,7 @@ export const translations = {
       timeline: 'Story',
       savethedate: 'Date',
       gallery: 'Gallery',
-      invitation: 'Gifts',
+      invitation: 'Invitation',
       wishes: 'Wishes',
       cast: 'Main Characters',
       church: 'Locations',
